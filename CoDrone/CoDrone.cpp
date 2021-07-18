@@ -10,13 +10,84 @@
 
 CoDroneClass CoDrone;
 
+byte CoDroneClass::receiveAttitudeSuccess = 0;
+byte CoDroneClass::receiveRangeSuccess = 0;
+byte CoDroneClass::receiveGyroSuccess = 0;
+byte CoDroneClass::receiveAccelSuccess = 0;
+byte CoDroneClass::receivePressureSuccess = 0;
+byte CoDroneClass::receiveTrimSuccess = 0;
+byte CoDroneClass::receiveStateSuccess = 0;
+byte CoDroneClass::receiveBatterySuccess = 0;
+byte CoDroneClass::receiveOptSuccess = 0;
+
+int CoDroneClass::roll = 0;
+int CoDroneClass::pitch = 0;
+int CoDroneClass::yaw = 0;
+int CoDroneClass::throttle = 0;
+
+int CoDroneClass::attitudeRoll	= 0;
+int CoDroneClass::attitudePitch	= 0;
+int CoDroneClass::attitudeYaw	= 0;
+
+int CoDroneClass::batteryPercent	= 0;
+int CoDroneClass::batteryVoltage	= 0;
+
+long CoDroneClass::fVelocitySumX 	= 0;
+long CoDroneClass::fVelocitySumY	= 0;
+
+long CoDroneClass::temperature	= 0;
+long CoDroneClass::pressure		= 0;
+
+int CoDroneClass::ImuAccX	= 0;
+int CoDroneClass::ImuAccY	= 0;
+int CoDroneClass::ImuAccZ	= 0;
+
+int CoDroneClass::ImuGyroRoll		= 0;
+int CoDroneClass::ImuGyroPitch	= 0;
+int CoDroneClass::ImuGyroYaw		= 0;
+
+int CoDroneClass::ImuAngleRoll	= 0;
+int CoDroneClass::ImuAnglePitch	= 0;
+int CoDroneClass::ImuAngleYaw		= 0;
+
+byte CoDroneClass::displayMode = 1;	//smar inventor : default 1
+
+boolean CoDroneClass::pairing = false;
+boolean	CoDroneClass::isConnectedBefore = false;
+	
+byte CoDroneClass::timeOutRetry = 0;
+byte CoDroneClass::sendCheckCount = 0;
+byte CoDroneClass::sendCheckFlag = 0;
+byte CoDroneClass::energy = 8;
+byte CoDroneClass::team = FREE_PLAY;
+	
+unsigned long CoDroneClass::weapon = FREE_MISSILE;
+
+byte CoDroneClass::linkState = 0;
+int CoDroneClass::rssi = 0;
+byte CoDroneClass::battery = 0;
+	
+byte CoDroneClass::armred = 255;
+byte CoDroneClass::armgreen = 0;
+byte CoDroneClass::armblue = 0;
+byte CoDroneClass::eyered = 255;
+byte CoDroneClass::eyegreen = 0;
+byte CoDroneClass::eyeblue = 0;
+byte CoDroneClass::armmode = ArmHold;
+byte CoDroneClass::eyemode = EyeHold;
+
+byte CoDroneClass::discoverFlag = 0;
+byte CoDroneClass::connectFlag = 0;
+
+byte CoDroneClass::devCount = 0;
+
 //-------------------------------------------------------------------------------------------------------//
 //-------------------------------------------- Begin ----------------------------------------------------//
 //-------------------------------------------------------------------------------------------------------//
 
 void CoDroneClass::begin(long	baud)
 {
-	DRONE_SERIAL.begin(baud);							// µÂ∑–∞˙	≈ÎΩ≈ ∞≥Ω√	(115200bps)
+	DRONE_SERIAL.begin(baud);							// ¬µ√•¬∑√ê¬∞√∫	√Ö√´¬Ω√Ö ¬∞¬≥¬Ω√É	(115200bps)
 	#if	defined(FIND_HWSERIAL1)
 		DEBUG_SERIAL.begin(baud);						// Serial	Debug	Begin	(115200bps)
 		displayMode	=	0;										// LED Display 0 = BOARD LED 0FF,	1	=	BOARD	LED	ON
@@ -61,7 +132,7 @@ void CoDroneClass::Send_Discover(byte	action)
 void CoDroneClass::AutoConnect()								// NearbyDrone or ConnectedDrone
 {
 	pinMode(10, INPUT_PULLUP);    								//DipSw3
-  if (!digitalRead(10))	 isConnectedBefore = false;		//DipSw3 down °È
+  if (!digitalRead(10))	 isConnectedBefore = false;		//DipSw3 down ¬°√©
   
   if(isConnectedBefore)	AutoConnect(ConnectedDrone);  
   else AutoConnect(NearbyDrone);  
