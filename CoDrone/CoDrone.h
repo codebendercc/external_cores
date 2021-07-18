@@ -1009,47 +1009,47 @@ public:
 
 //------------------------------------------------------------------------------------//
 
-	byte receiveAttitudeSuccess = 0;
-	byte receiveRangeSuccess = 0;
-	byte receiveGyroSuccess = 0;
-	byte receiveAccelSuccess = 0;
-	byte receivePressureSuccess = 0;
-	byte receiveTrimSuccess = 0;
-	byte receiveStateSuccess = 0;
-	byte receiveBatterySuccess = 0;
-	byte receiveOptSuccess = 0;
+	byte receiveAttitudeSuccess;
+	byte receiveRangeSuccess;
+	byte receiveGyroSuccess;
+	byte receiveAccelSuccess;
+	byte receivePressureSuccess;
+	byte receiveTrimSuccess;
+	byte receiveStateSuccess;
+	byte receiveBatterySuccess;
+	byte receiveOptSuccess;
 
 //------------------------------------------------------------------------------------//
 
-	int roll = 0;
-	int pitch = 0;
-	int yaw = 0;
-	int throttle = 0;
+	int roll;
+	int pitch;
+	int yaw;
+	int throttle;
 
-	int attitudeRoll	= 0;
-	int attitudePitch	= 0;
-	int attitudeYaw	= 0;
+	int attitudeRoll;
+	int attitudePitch;
+	int attitudeYaw;
 
-	int batteryPercent	= 0;
-	int batteryVoltage	= 0;
+	int batteryPercent;
+	int batteryVoltage;
 
-	long fVelocitySumX 	= 0;
-	long fVelocitySumY	= 0;
+	long fVelocitySumX ;
+	long fVelocitySumY;
 
-	long temperature	= 0;
-	long pressure		= 0;
+	long temperature;
+	long pressure	;
 
-	int ImuAccX	= 0;
-	int ImuAccY	= 0;
-	int ImuAccZ	= 0;
+	int ImuAccX;
+	int ImuAccY;
+	int ImuAccZ;
 
-	int ImuGyroRoll		= 0;
-	int ImuGyroPitch	= 0;
-	int ImuGyroYaw		= 0;
+	int ImuGyroRoll	;
+	int ImuGyroPitch;
+	int ImuGyroYaw	;
 
-	int ImuAngleRoll	= 0;
-	int ImuAnglePitch	= 0;
-	int ImuAngleYaw		= 0;
+	int ImuAngleRoll;
+	int ImuAnglePitch;
+	int ImuAngleYaw	;
 
 	int TrimAll_Roll;
 	int TrimAll_Pitch;
@@ -1071,50 +1071,50 @@ public:
 	int SendInterval; //millis seconds
 	int analogOffset;
 
-	byte displayMode = 1;	//smar inventor : default 1
+	byte displayMode;	//smar inventor : default 1
 
-	boolean pairing = false;
-	boolean	isConnectedBefore = false;
+	boolean pairing;
+	boolean	isConnectedBefore;
 	
-	byte timeOutRetry = 0;
-	byte sendCheckCount = 0;
-	byte sendCheckFlag = 0;
-	byte energy = 8;
-	byte team = FREE_PLAY;
+	byte timeOutRetry;
+	byte sendCheckCount;
+	byte sendCheckFlag;
+	byte energy;
+	byte team;
 	
-	unsigned long weapon = FREE_MISSILE;
+	unsigned long weapon;
 
 //------------------------------------------------------------------------------------//
 	//for CodeLoader
-	boolean sendingData = false;	
-	boolean sendDataControl = true;
+	boolean sendingData;	
+	boolean sendDataControl;
 	
 //------------------------------------------------------------------------------------//
-	byte linkState = 0;
-	int rssi = 0;
-	byte battery = 0;
+	byte linkState;
+	int rssi;
+	byte battery;
 	unsigned long	irMessageReceive;
 	byte droneState[7];
 	int sensorRange[6];
 	long PreviousMillis;
 
-	byte armred = 255;
-	byte armgreen = 0;
-	byte armblue = 0;
-	byte eyered = 255;
-	byte eyegreen = 0;
-	byte eyeblue = 0;
-	byte armmode = ArmHold;
-	byte eyemode = EyeHold;
+	byte armred;
+	byte armgreen;
+	byte armblue;
+	byte eyered;
+	byte eyegreen;
+	byte eyeblue;
+	byte armmode;
+	byte eyemode;
 
 private:
 	long PreviousBuzz;
 	long timeOutSendPreviousMillis;
 	
-	byte discoverFlag = 0;
-	byte connectFlag = 0;
+	byte discoverFlag;
+	byte connectFlag;
 
-	byte devCount = 0;
+	byte devCount;
 	byte devFind[5];
 
 	int devRSSI[5];
